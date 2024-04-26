@@ -1,9 +1,13 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const Home = () => {
+
+    const items = useLoaderData();
+
     return (
         <div>
-            <h3>this is home</h3>
+            <h3>Items: {items.length} </h3>
         </div>
     );
 };
