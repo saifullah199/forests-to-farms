@@ -1,15 +1,17 @@
+import { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../Provider/AuthProvider";
 
 
 const Navbar = () => {
 
-    // const {user,logOut} = useContext(AuthContext)
+    const {user,logOut} = useContext(AuthContext)
 
-//   const handleSignOut = () => {
-//     logOut()
-//     .then()
-//     .catch()
-//   }
+  const handleSignOut = () => {
+    logOut()
+    .then()
+    .catch()
+  }
 
     const navlinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
@@ -38,14 +40,37 @@ const Navbar = () => {
       {navlinks}
     </ul>
   </div>
-   <div className="navbar-end flex gap-4">
-    <Link to='/login'> 
+   <div className="navbar-end ">
+    {/* <Link to='/login'> 
       <button className="btn">Login</button>
     </Link>
-    
+
     <Link to='/register'>
       <button className="btn">Register</button>
-    </Link>
+    </Link> */}
+
+{
+      user ?
+      <div className="flex">
+        
+        <Link >
+           <img className="w-[50px] rounded-full" 
+              src={user?.photoURL} alt="" /> 
+        </Link>
+        
+        
+        <button onClick={handleSignOut} className="btn btn-outline btn-secondary"> Sign Out </button>
+      </div>
+      :
+      <div className="flex gap-4">
+          <Link to='/login'>
+            <button className="btn btn-outline btn-success"> Login</button>
+          </Link>
+          <Link to='/register'>
+            <button className="btn btn-outline btn-success">Register</button>
+          </Link>
+      </div>
+    }
 
 
   </div> 
