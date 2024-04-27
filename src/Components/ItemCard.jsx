@@ -20,7 +20,9 @@ const ItemCard = ({item}) => {
     
     <div className="card-actions justify-end">
     <div className="join join-vertical space-y-5">
-        <button className="btn ">View Details</button>
+            <Link to="/viewdetails/:id">
+               <button  className="btn"> View Details </button>
+             </Link>
         
     </div>
     </div>

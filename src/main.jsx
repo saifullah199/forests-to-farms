@@ -14,6 +14,8 @@ import ArtCraftsItems from './Pages/ArtCraftsItems';
 import AddCraftItem from './Pages/AddCraftItem';
 import MyList from './Pages/MyList';
 import UpdatePage from './Pages/UpdatePage';
+import ViewDetails from './Pages/ViewDetails';
+import AuthProvider from './Provider/AuthProvider';
 
 const router = createBrowserRouter([
   {
@@ -50,6 +52,12 @@ const router = createBrowserRouter([
       {
         path: 'updatepage',
         element:<UpdatePage></UpdatePage>
+      },
+      {
+        path: 'viewdetails/:itemId',
+        element: <ViewDetails/>,
+         
+        
       }
 
     ]
@@ -58,6 +66,8 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
   </React.StrictMode>,
 )

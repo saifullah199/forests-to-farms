@@ -18,7 +18,8 @@ const AddCraftItem = () => {
         const userName = form.userName.value;
         const photo = form.photo.value;
         
-        const newItem = {name, subcategory,price,rating,customization,description, processing,stock,email,userName,photo}
+        const newItem = {name, subcategory,price,rating,customization,description, 
+            processing,stock,email,userName,photo}
         console.log(newItem);
 
         // send data to the server

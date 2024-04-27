@@ -38,9 +38,14 @@ const Navbar = () => {
       {navlinks}
     </ul>
   </div>
-   <div className="navbar-end">
-    <button>Login</button>
-    <button>Register</button>
+   <div className="navbar-end flex gap-4">
+    <Link to='/login'> 
+      <button className="btn">Login</button>
+    </Link>
+    
+    <Link to='/register'>
+      <button className="btn">Register</button>
+    </Link>
 
 
   </div> 
