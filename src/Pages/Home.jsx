@@ -1,5 +1,6 @@
 import { useLoaderData } from "react-router-dom";
 import ItemCard from "../Components/ItemCard";
+import Banner from "../Components/Banner";
 
 
 const Home = () => {
@@ -8,11 +9,12 @@ const Home = () => {
 
     return (
         <div>
-            <h3>Items: {items.length} </h3> 
+            
+            <Banner></Banner>
 
             <div className="grid md:grid-cols-2 gap-4">
                 {
-                    items.map(item => <ItemCard 
+                    items.map(item => <ItemCard  
                                 key={item._id}
                                 item={item}
                                 >

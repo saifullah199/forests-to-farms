@@ -1,6 +1,10 @@
 import Swal from 'sweetalert2'
+import { AuthContext } from '../Provider/AuthProvider';
+import { useContext } from 'react';
 
 const AddCraftItem = () => {
+
+    const {user} = useContext(AuthContext)
 
     const handleAddItem = e =>{
         e.preventDefault()
@@ -14,7 +18,7 @@ const AddCraftItem = () => {
         const description = form.description.value;
         const processing = form.processing.value;
         const stock = form.stock.value;
-        const email = form.email.value;
+        const email = user.email;
         const userName = form.userName.value;
         const photo = form.photo.value;
         

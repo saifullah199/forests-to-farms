@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { Link, Navigate, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { GoogleAuthProvider, signInWithPopup } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../firebase.config";
 
 
@@ -11,6 +11,7 @@ const Login = () => {
     const navigate = useNavigate()
 
     const googleProvider = new GoogleAuthProvider();
+    const githubProvider = new GithubAuthProvider()
 
     const handleGoogleSignIn = () =>{
         signInWithPopup(auth, googleProvider)
@@ -24,6 +25,18 @@ const Login = () => {
           console.log('error', error.message)
         })
     
+      }
+
+      const handleGithubSignIn = () =>{
+        signInWithPopup(auth, githubProvider)
+        .then(result => {
+          const loggedInUser2 = result.user;
+          console.log(loggedInUser2)
+          navigate('/');
+        })
+        .catch(error =>{
+          console.log('error', error.message)
+        })
       }
 
     const handleLogin = e => {
@@ -77,7 +90,7 @@ const Login = () => {
 
         <div className="flex gap-4">
           <button onClick={handleGoogleSignIn}> <FaGoogle /></button>
-          <button > <FaGithub /></button>
+          <button onClick={handleGithubSignIn} > <FaGithub /> </button>
         </div>
         
         <div>

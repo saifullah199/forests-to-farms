@@ -30,7 +30,7 @@ const ArtCraftsItems = () => {
         <td> {item.price} </td>
         <td> {item.description} </td>
         <td>
-            <Link to="/viewdetails/:id">
+            <Link to={`/viewdetails/${item._id}`}>
                <button  className="btn"> View Details </button>
              </Link>
         </td>
