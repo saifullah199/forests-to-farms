@@ -6,7 +6,7 @@ const ArtCraftsItems = () => {
     const items = useLoaderData()
     return (
         <div>
-            This is Art & Crafts Items {items.length}
+           
 
             <div className="overflow-x-auto">
   <table className="table">

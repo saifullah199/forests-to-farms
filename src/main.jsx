@@ -48,7 +48,7 @@ const router = createBrowserRouter([
       {
         path: '/mylist',
         element:<MyList></MyList>,
-        loader : () => fetch(`http://localhost:5000/item`)
+        
       },
       {
         path: '/updatepage/:id',

@@ -1,22 +1,66 @@
 import { Link, useLoaderData } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
-import { useContext } from "react";
+import { useContext, useEffect, useState } from "react";
+import Swal from "sweetalert2";
+
 
 const MyList = () => {
 
     const {user} = useContext(AuthContext)
+    const [items, setItems] = useState([])
 
-    const filteredUsers = useLoaderData();
     
 
+    useEffect(() =>{
+      fetch(`http://localhost:5000/mylist/${user?.email}`)
+      .then(res => res.json())
+      .then(data => {
+        setItems(data)
+      })
+    },[user])
+            
+    const handleDelete =_id => {
+        console.log(_id)
+        Swal.fire({
+            title: "Are you sure?",
+            text: "You won't be able to revert this!",
+            icon: "warning",
+            showCancelButton: true,
+            confirmButtonColor: "#3085d6",
+            cancelButtonColor: "#d33",
+            confirmButtonText: "Yes, delete it!"
+          }).then((result) => {
+            if (result.isConfirmed) {
+              
+            
+            fetch(`http://localhost:5000/item/${_id}`, {
+                method: 'DELETE'
+            })
+            .then(res => res.json())
+            .then( data => {
+                console.log(data);
+                if( data.deletedCount>0){
+                    Swal.fire({
+                        title: "Deleted!",
+                        text: "Your file has been deleted.",
+                        icon: "success"
+                      });
+                }
+            })
+            }
+          });
+    }
     
 
     
 
     return (
-        <div className="grid md:grid-cols-2 gap-4">
+        <div>
+
+          <h3> my list page</h3>
+            <div className="grid md:grid-cols-2 gap-4">
             {
-                filteredUsers.map(item => <div key={item._id} >
+                items.map(item => <div key={item._id}  >
                 
                         
                     
@@ -38,9 +82,9 @@ const MyList = () => {
             <Link to={`/updatepage/${item._id}`} >
                <button  className="btn"> Update </button>
              </Link>
-            <Link >
-               <button  className="btn"> Delete </button>
-             </Link>
+            
+               <button onClick={() => handleDelete(item._id)}  className="btn"> Delete </button>
+             
         
     </div>
     </div>
@@ -48,6 +92,7 @@ const MyList = () => {
 </div>
                     </div>)
             }
+            </div> 
         </div>
     );
 };

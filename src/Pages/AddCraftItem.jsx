@@ -8,7 +8,7 @@ const AddCraftItem = () => {
 
     const handleAddItem = e =>{
         e.preventDefault()
-
+        console.log(user)
         const form = e.target;
         const name = form.name.value;
         const subcategory = form.subcategory.value;
@@ -131,7 +131,7 @@ const AddCraftItem = () => {
                     </div>
                     </div>
                     {/* form row */}
-                    <div className="flex gap-5">
+                     <div className="flex gap-5">
                     <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text"> User Email</span>
@@ -148,7 +148,7 @@ const AddCraftItem = () => {
                             <input type="text" name="userName" placeholder="User Name" className="w-full input input-bordered" />
                         </label>
                     </div>
-                    </div>
+                    </div> 
                     {/* form row */}
                     <div className="">
                     <div className="form-control w-full">
