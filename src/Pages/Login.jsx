@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { FaGithub, FaGoogle } from "react-icons/fa";
-import { Link, Navigate, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider, signInWithPopup } from "firebase/auth";
 import auth from "../firebase.config";
+import Swal from "sweetalert2";
 
 
 const Login = () => {
@@ -18,6 +19,15 @@ const Login = () => {
         .then(result => {
           const loggedInUser = result.user;
           console.log(loggedInUser)
+          if(loggedInUser){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "You are successfully loggedin",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
           navigate('/');
           
         })
@@ -32,6 +42,15 @@ const Login = () => {
         .then(result => {
           const loggedInUser2 = result.user;
           console.log(loggedInUser2)
+          if(loggedInUser2){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "You are successfully loggedin",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
           navigate('/');
         })
         .catch(error =>{
@@ -51,6 +70,15 @@ const Login = () => {
         signIn(email,password)
         .then(result => {
           console.log(result.user)
+          if(result.user){
+            Swal.fire({
+              position: "top-end",
+              icon: "success",
+              title: "You are successfully loggedin",
+              showConfirmButton: false,
+              timer: 1500
+            });
+          }
           e.target.reset();
           navigate('/');
     

@@ -1,18 +1,20 @@
 import { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 import { FaEyeSlash, FaRegEye } from "react-icons/fa";
 import { AuthContext } from "../Provider/AuthProvider";
+import Swal from "sweetalert2";
 
 
 const Register = () => {
 
   const [registerError, setRegisterError] = useState('')
-const [success, setSuccess] = useState('')
-const [showPassword, setShowPassword] = useState(false)
+  const [success, setSuccess] = useState('')
+  const [showPassword, setShowPassword] = useState(false)
 
   const {createUser} = useContext(AuthContext)
+  const navigate = useNavigate()
   
   const handleRegister = e =>{
     e.preventDefault();
@@ -46,7 +48,16 @@ const [showPassword, setShowPassword] = useState(false)
     createUser(email,password)
     .then(result =>{
       console.log(result.user)
-      setSuccess('user successfully registered')
+      if(result.user){
+        Swal.fire({
+          position: "top-end",
+          icon: "success",
+          title: "Congrats! You are a member now",
+          showConfirmButton: false,
+          timer: 1500
+        });
+      }
+      navigate('/')
     })
     .catch(error => {
       console.error(error);
