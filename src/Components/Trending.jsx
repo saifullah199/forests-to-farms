@@ -2,7 +2,7 @@
 
 const Trending = () => {
     return (
-        <div>
+        <div className="bg-base-200 rounded-2xl p-5">
             <h3 className="text-3xl font-bold text-center my-5"> Trending Products</h3>
             <div>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 w-10/12 mx-auto">
