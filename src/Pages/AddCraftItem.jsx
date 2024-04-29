@@ -49,7 +49,7 @@ const AddCraftItem = () => {
 
     }
     return (
-        <div className="rounded-2xl">
+        <div className="rounded-2xl mt-8">
            
            <div className="bg-[#F4F3F0] p-24  ">
             <h2 className="text-center text-3xl font-bold ">Add Craft Item</h2>

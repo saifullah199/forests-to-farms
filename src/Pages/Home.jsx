@@ -2,6 +2,8 @@ import { Link, useLoaderData } from "react-router-dom";
 import ItemCard from "../Components/ItemCard";
 import Banner from "../Components/Banner";
 import CraftCategories from "../Components/CraftCategories";
+import Speciality from "../Components/Speciality";
+import Trending from "../Components/Trending";
 
 
 const Home = () => {
@@ -11,7 +13,7 @@ const Home = () => {
     return (
         <div>
             
-            <div className="mt-10">
+            <div className="my-10">
                 <Banner></Banner>
             </div>
 
@@ -26,10 +28,18 @@ const Home = () => {
                 }
             </div>
 
-            <div className="container mx- auto my-10">
-                <Link to={`/subcateitems/:subcategory`}>  
-                    <CraftCategories> </CraftCategories>
-                </Link>
+            <div className="my-10  ">
+                <Speciality/>
+            </div>
+
+            <div className="container mx-auto my-10">
+
+                <CraftCategories> </CraftCategories>
+                
+            </div>
+
+            <div className="my-5">
+                <Trending/>
             </div>
         </div>
     );

@@ -5,13 +5,16 @@ import { getAuth } from "firebase/auth";
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+
+console.log('inside firebase config', import.meta.env.VITE_PASS)
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCx6t4vhJGVMJXY611_NE61aU_uMJq8fKY",
-  authDomain: "forests-to-farms.firebaseapp.com",
-  projectId: "forests-to-farms",
-  storageBucket: "forests-to-farms.appspot.com",
-  messagingSenderId: "1005360787592",
-  appId: "1:1005360787592:web:8c491859a3fccf34d52f3d"
+  apiKey: import.meta.env.VITE_apiKey ,
+  authDomain: import.meta.env.VITE_authDomain,
+  projectId: import.meta.env.VITE_projectId,
+  storageBucket: import.meta.env.VITE_storageBucket,
+  messagingSenderId: import.meta.env.VITE_messagingSenderId,
+  appId: import.meta.env.VITE_appId,
 };
 
 // Initialize Firebase

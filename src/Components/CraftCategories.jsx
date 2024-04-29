@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 const CraftCategories = () => {
@@ -12,9 +13,12 @@ const CraftCategories = () => {
         })
     },[])
     return (
+        
         <div >
             <h3 className="text-3xl font-bold text-center mt-7"> Jute & Wooden Categories  </h3>
-
+            <Link to={`/subcateitems/wooden home decor`}>  
+                    
+                
             <div className="grid md:grid-cols-2 gap-4">
             {
                 crafts.map( craft => <div key={craft._id}> 
@@ -39,6 +43,7 @@ const CraftCategories = () => {
                 </div>)
             }
             </div>
+            </Link>
         </div>
     );
 };
