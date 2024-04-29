@@ -16,11 +16,15 @@ import MyList from './Pages/MyList';
 import UpdatePage from './Pages/UpdatePage';
 import ViewDetails from './Pages/ViewDetails';
 import AuthProvider from './Provider/AuthProvider';
+import PrivateRoute from './Routes/PrivateRoute';
+import SubCateItems from './Pages/SubCateItems';
+import ErrorPage from './Pages/ErrorPage';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root></Root>,
+    errorElement:<ErrorPage/>,
     children: [
       {
         path: '/',
@@ -43,23 +47,28 @@ const router = createBrowserRouter([
       },
       {
         path: '/addart',
-        element: <AddCraftItem></AddCraftItem>
+        element: <PrivateRoute> <AddCraftItem/> </PrivateRoute>
       },
       {
         path: '/mylist',
-        element:<MyList></MyList>,
+        element:<PrivateRoute><MyList/></PrivateRoute>,
         
       },
       {
         path: '/updatepage/:id',
-        element:<UpdatePage></UpdatePage>,
+        element:<PrivateRoute> <UpdatePage/> </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
       },
       {
         path: '/viewdetails/:id',
-        element: <ViewDetails/>,
+        element: <PrivateRoute> <ViewDetails/> </PrivateRoute>,
         loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
         
+      },
+      {
+        path: '/subcateitems/:subcategory',
+        element: <SubCateItems/>,
+        loader: ({params}) => fetch(`http://localhost:5000/subcategory/${params.subcategory}`) 
       }
 
     ]

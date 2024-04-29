@@ -68,9 +68,38 @@ const AddCraftItem = () => {
                         <label className="label">
                             <span className="label-text"> Subcategory Name</span>
                         </label>
-                        <label className="input-group" >
+                        {/* <label className="input-group" >
                             <input type="text" name="subcategory" placeholder="Subcategory Name" className="w-full input input-bordered" />
-                        </label>
+                        </label> */}
+                        <select
+                name="subcategory"
+                
+                className="w-full p-2 border rounded-md"
+                type="text"
+                placeholder="Select Subcategory"
+              >
+                <option value="Wooden Furniture & Sculptures" selected>
+                    Wooden Furniture & Sculptures
+                </option>
+                <option value="Wooden Home Decor" selected>
+                    Wooden Home Decor
+                </option>
+                <option value="Wooden Utensils and Kitchenware" selected>
+                    Wooden Utensils and Kitchenware
+                </option>
+                <option value="Jute Home Decor" selected>
+                    Jute Home Decor
+                </option>
+                <option value="Jute Kitchenware & utensils" selected>
+                    Jute Kitchenware & utensils
+                </option>
+                <option value="Jute and wooden jewellery" selected>
+                    Jute and wooden jewellery
+
+                </option>
+              </select>
+
+                        
                     </div>
                     </div>
                     {/* form row */}
@@ -137,7 +166,7 @@ const AddCraftItem = () => {
                             <span className="label-text"> User Email</span>
                         </label>
                         <label className="input-group">
-                            <input type="email" name="email" placeholder="User Email" className="w-full input input-bordered" />
+                            <input type="email" name="email" defaultValue={user.email} placeholder="User Email" className="w-full input input-bordered" disabled />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2">
@@ -145,7 +174,7 @@ const AddCraftItem = () => {
                             <span className="label-text"> User Name</span>
                         </label>
                         <label className="input-group" >
-                            <input type="text" name="userName" placeholder="User Name" className="w-full input input-bordered" />
+                            <input type="text" name="userName" defaultValue={user.displayName} placeholder="User Name" className="w-full input input-bordered"  disabled/>
                         </label>
                     </div>
                     </div> 

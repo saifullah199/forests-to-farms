@@ -28,7 +28,7 @@ const ItemCard = ({item}) => {
     </div>
     </div>
   </div>
-</div>
+            </div>
         </div>
     );
 };

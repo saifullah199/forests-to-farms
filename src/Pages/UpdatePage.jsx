@@ -8,7 +8,7 @@ const UpdatePage = () => {
     const {_id,name, subcategory,price,rating,customization,description, 
         processing,stock,photo} = item;
 
-        console.log(item)
+        
         const handleUpdateItem = (e) => {
 
             e.preventDefault()

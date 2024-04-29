@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from "react-router-dom";
+import { Link,  } from "react-router-dom";
 import { AuthContext } from "../Provider/AuthProvider";
 import { useContext, useEffect, useState } from "react";
 import Swal from "sweetalert2";
@@ -57,7 +57,7 @@ const MyList = () => {
     return (
         <div>
 
-          <h3> my list page</h3>
+          
             <div className="grid md:grid-cols-2 gap-4">
             {
                 items.map(item => <div key={item._id}  >

@@ -1,6 +1,7 @@
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 import ItemCard from "../Components/ItemCard";
 import Banner from "../Components/Banner";
+import CraftCategories from "../Components/CraftCategories";
 
 
 const Home = () => {
@@ -10,7 +11,9 @@ const Home = () => {
     return (
         <div>
             
-            <Banner></Banner>
+            <div className="mt-10">
+                <Banner></Banner>
+            </div>
 
             <div className="grid md:grid-cols-2 gap-4">
                 {
@@ -21,6 +24,12 @@ const Home = () => {
 
                                 </ItemCard>)
                 }
+            </div>
+
+            <div className="container mx- auto my-10">
+                <Link to={`/subcateitems/:subcategory`}>  
+                    <CraftCategories> </CraftCategories>
+                </Link>
             </div>
         </div>
     );
