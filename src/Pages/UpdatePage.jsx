@@ -30,7 +30,7 @@ const UpdatePage = () => {
         console.log(updatedItem);
 
          // send data to the server
-         fetch(`http://localhost:5000/item/${_id}`,{
+         fetch(`https://jute-wooden-server-theta.vercel.app/item/${_id}`,{
             method:'PUT',
             headers: {
                 'content-type': 'application/json'

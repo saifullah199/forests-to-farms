@@ -7,7 +7,7 @@ const SubCateItems = () => {
     const [cateitems, setCateItems] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:5000/subcategory/${subcategory}`)
+        fetch(`https://jute-wooden-server-theta.vercel.app/subcategory/${subcategory}`)
         .then(res => res.json())
         .then(data => {
             setCateItems(data);

@@ -29,7 +29,7 @@ const router = createBrowserRouter([
       {
         path: '/',
         element: <Home/>,
-        loader: () => fetch('http://localhost:5000/item')
+        loader: () => fetch('https://jute-wooden-server-theta.vercel.app/item')
       },
       {
         path: '/login',
@@ -43,7 +43,7 @@ const router = createBrowserRouter([
       {
         path: '/art-craft',
         element: <ArtCraftsItems></ArtCraftsItems>,
-        loader: () => fetch('http://localhost:5000/item')
+        loader: () => fetch('https://jute-wooden-server-theta.vercel.app/item')
       },
       {
         path: '/addart',
@@ -57,18 +57,18 @@ const router = createBrowserRouter([
       {
         path: '/updatepage/:id',
         element:<PrivateRoute> <UpdatePage/> </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
+        loader: ({params}) => fetch(`https://jute-wooden-server-theta.vercel.app/item/${params.id}`)
       },
       {
         path: '/viewdetails/:id',
         element: <PrivateRoute> <ViewDetails/> </PrivateRoute>,
-        loader: ({params}) => fetch(`http://localhost:5000/item/${params.id}`)
+        loader: ({params}) => fetch(`https://jute-wooden-server-theta.vercel.app/item/${params.id}`)
         
       },
       {
         path: '/subcateitems/:subcategory',
         element: <SubCateItems/>,
-         loader: () => fetch('http://localhost:5000/item')
+         loader: () => fetch('https://jute-wooden-server-theta.vercel.app/item')
       }
 
     ]

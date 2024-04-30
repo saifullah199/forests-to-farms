@@ -6,7 +6,7 @@ const CraftCategories = () => {
 
     const [crafts, setCrafts] = useState([])
     useEffect(() =>{
-        fetch('http://localhost:5000/subcategory')
+        fetch('https://jute-wooden-server-theta.vercel.app//subcategory')
         .then(res => res.json())
         .then(data => {
             setCrafts(data)

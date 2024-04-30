@@ -12,7 +12,7 @@ const MyList = () => {
     
 
     useEffect(() =>{
-      fetch(`http://localhost:5000/mylist/${user?.email}`)
+      fetch(`https://jute-wooden-server-theta.vercel.app/mylist/${user?.email}`)
       .then(res => res.json())
       .then(data => {
         setItems(data)
@@ -33,7 +33,7 @@ const MyList = () => {
             if (result.isConfirmed) {
               
             
-            fetch(`http://localhost:5000/item/${_id}`, {
+            fetch(`https://jute-wooden-server-mtr4255p1-md-khalid-saifullahs-projects.vercel.app//item/${_id}`, {
                 method: 'DELETE'
             })
             .then(res => res.json())
