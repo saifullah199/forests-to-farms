@@ -55,10 +55,10 @@ const MyList = () => {
     
 
     return (
-        <div>
+        <div className="mt-8 ">
 
           
-            <div className="grid md:grid-cols-2 gap-4">
+            <div className="grid md:grid-cols-2 gap-4 p-5">
             {
                 items.map(item => <div key={item._id}  >
                 
@@ -66,7 +66,7 @@ const MyList = () => {
                     
                         <div className="card card-side bg-base-100 shadow-xl">
   <figure><img src={item.photo} className="w-[200px] h-[200px] rounded-full"  alt="Movie"/></figure>
-  <div className="flex justify-between w-full">
+  <div className="flex justify-between w-full mx-4">
     <div>
         <h2 className="card-title"> {item.name} </h2>
         <p>Price: {item.price} </p>
